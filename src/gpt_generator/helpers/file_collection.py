@@ -16,10 +16,20 @@ async def a_create_file_collection(
     # Initialize FileCollection
     file_collection = FileCollection(project.name)
 
+    architecture_file_string = f"""
+    ## User Prompt ##
+
+
+    ## File Structure ##
+    {project.structure}
+
+    ## Architecture Description ##
+    {raw_architector_response}
+    """
+
     # Add initial response to collection
     file_collection.collections["raw_responses"].append(
-        File("architector.txt", str(raw_architector_response))
-    )
+        File("architector.txt", architecture_file_string))
 
     structure_dictionary = structure_2_dict(project.structure)
 
