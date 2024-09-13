@@ -1,0 +1,19 @@
+---structure---
+microservice/
+├── app/
+│   ├── service/
+│   │   ├── joke_generator.py {get_joke:str}
+│   │   └── joke_validator.py {validate_joke:bool}<re:match>
+│   ├── models/
+│   │   └── joke.py [joke:str]<pydantic:BaseModel>
+│   ├── main.py {app:FastAPI}[app:FastAPI]<fastapi:FastAPI>^joke_generator.get_joke^,^joke_validator.validate_joke^,^joke.py.joke^
+│   └── config.py [settings:dict]<pydantic:BaseSettings>
+├── tests/
+│   ├── test_joke_generator.py {test_get_joke:None}<pytest:mark>^joke_generator.get_joke^
+│   └── test_joke_validator.py {test_validate_joke:None}<pytest:mark>^joke_validator.validate_joke^
+├── Dockerfile
+├── requirements.txt
+├── main.py {run:None}<uvicorn:run>^app.main.app^
+├── API.md
+└── README.md
+---

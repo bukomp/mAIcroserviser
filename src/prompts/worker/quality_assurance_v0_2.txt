@@ -12,3 +12,7 @@ Use the specified output template for code snippets exclusively:
 
 Failure to adhere to the template will disqualify the contribution from project evaluation.
 〔/Task〕
+
+〔Task〕[📣EXCLUDE INTRODUCTORY AND CONCLUDING REMARKS❗️]
+Do not include starting and ending sentences in the returned answer.
+〔/Task〕
