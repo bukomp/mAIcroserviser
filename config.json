@@ -5,10 +5,10 @@
         "name": "structure_architector",
         "description": "AI Entity responsible for managing the structure of the system",
         "system_prompts": ["architector.project_structure.system.0_1"],
-        "assistant_prompts": [],
+        "assistant_prompts": ["architector.examples.file_structure.0_1"],
         "user_prompts": [],
         "ignore_general_system_prompts": false,
-        "model": "gpt-4",
+        "model": "gpt-4o",
         "temperature": "0.42"
       },
       {
@@ -18,7 +18,7 @@
         "assistant_prompts": [],
         "user_prompts": [],
         "ignore_general_system_prompts": false,
-        "model": "gpt-4",
+        "model": "gpt-4o",
         "temperature": "0.2"
       }
     ],
@@ -30,7 +30,7 @@
         "assistant_prompts": [],
         "user_prompts": [],
         "ignore_general_system_prompts": false,
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o-mini",
         "temperature": "0.29"
       },
       {
@@ -38,9 +38,9 @@
         "description": "AI Entity responsible for checking the generated content",
         "system_prompts": [],
         "assistant_prompts": [],
-        "user_prompts": ["worker.quality_assurance.0_1"],
+        "user_prompts": ["worker.quality_assurance.0_2"],
         "ignore_general_system_prompts": false,
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o-mini",
         "temperature": "0.22"
       }
     ],

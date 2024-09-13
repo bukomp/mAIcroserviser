@@ -1,5 +1,10 @@
 {
     "architector": {
+        "examples": {
+            "file_structure": {
+                "0_1": "src/prompts/architector/examples/file_structure_v0_1.txt"
+            }
+        },
         "file_description": {
             "system": {
                 "0_1": "src/prompts/architector/file_description/system_v0_1.txt"
@@ -23,7 +28,7 @@
     },
     "worker": {
         "quality_assurance": {
-            "0_1": "src/prompts/worker/quality_assurance_v0_1.txt"
+            "0_2": "src/prompts/worker/quality_assurance_v0_2.txt"
         },
         "system": {
             "0_4_7": "src/prompts/worker/system_v0_4_7.txt"
