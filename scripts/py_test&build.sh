@@ -6,6 +6,7 @@ if ! docker info >/dev/null 2>&1; then
     exit 1
 fi
 
+# how to use: ./py_test&build.sh <microservice_name>
 if [ -z "$n" ]
 then
     microservice=$(ls -v ./microservices | tail -n 1)
