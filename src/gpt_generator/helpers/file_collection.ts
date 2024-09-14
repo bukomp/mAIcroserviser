@@ -13,12 +13,11 @@ ${project.structure}
 ## Architecture Description ##
 ${rawArchitectorResponse}
 `;
-
 const addInitialResponse = (fileCollection: FileCollection, architectureFileString: string) =>
-  fileCollection.collections.raw_responses?.push(createFile('architector.txt', architectureFileString, ''));
+  fileCollection.collections['raw_responses']?.push(createFile('architector.txt', architectureFileString, ''));
 
 const processFiles = async (project: ArchitectorResponse, structureDictionary: Record<string, string>) => {
-  const tasks = project.files.map((file) => gptWorker(project, file.fileName, file.description));
+  const tasks = project.files.map(({ fileName, description }) => gptWorker(project, fileName, description));
   const responses = await Promise.all(tasks);
   return project.files.map((file, index) => ({
     rawResponse: createFile(`raw_${file.fileName}.txt`, responses[index] ?? '', ''),
@@ -28,8 +27,8 @@ const processFiles = async (project: ArchitectorResponse, structureDictionary: R
 
 const addResultsToCollection = (fileCollection: FileCollection, results: { rawResponse: File; formattedResponse: File }[]) => {
   results.forEach(({ rawResponse, formattedResponse }) => {
-    fileCollection.collections.raw_responses?.push(rawResponse);
-    fileCollection.collections.formatted_responses?.push(formattedResponse);
+    fileCollection.collections['raw_responses']?.push(rawResponse);
+    fileCollection.collections['formatted_responses']?.push(formattedResponse);
   });
 };
 

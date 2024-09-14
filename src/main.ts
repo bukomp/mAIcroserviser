@@ -4,7 +4,7 @@ import readUserInput from './helpers/read_user_input';
 import { config } from './helpers/config';
 import { writeFilesFromCollection } from './helpers/file_writer';
 import { FileCollection } from './models/file_interface';
-import { gpt_main } from 'gpt_generator/gpt_main';
+import { gpt_main } from './gpt_generator/gpt_main';
 
 const main = async (): Promise<void> => {
   try {

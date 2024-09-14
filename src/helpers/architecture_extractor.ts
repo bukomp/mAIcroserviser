@@ -1,13 +1,8 @@
-import {
-  ArchitectorResponse,
-  FileExplanation,
-} from 'models/gpt_responses_interface';
+import { ArchitectorResponse, FileExplanation } from '../models/gpt_responses_interface';
 
 const projectExtractor = (content: string): ArchitectorResponse => {
   const projectNameMatch = content.match(/---structure---\n(.*?)\//);
-  const projectName = projectNameMatch
-    ? projectNameMatch[1] ?? 'project'
-    : 'project';
+  const projectName = projectNameMatch ? projectNameMatch[1] ?? 'project' : 'project';
   const structure = extractStructure(content);
   const files = extractFileDescription(content);
   return {
@@ -56,13 +51,6 @@ const structure2Dict = (fileStructure: string): Record<string, string> => {
   return filePathDict;
 };
 
-const structureToListOfFiles = (structure: string): string[] =>
-  Object.keys(structure2Dict(structure));
+const structureToListOfFiles = (structure: string): string[] => Object.keys(structure2Dict(structure));
 
-export {
-  projectExtractor,
-  extractFileDescription,
-  extractStructure,
-  structure2Dict,
-  structureToListOfFiles,
-};
+export { projectExtractor, extractFileDescription, extractStructure, structure2Dict, structureToListOfFiles };
