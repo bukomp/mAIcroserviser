@@ -1,28 +1,25 @@
 import fs from 'fs';
-import * as path from 'path';
 
-import { readUserInput } from './helpers/readUserInput';
+import readUserInput from './helpers/read_user_input';
 import { config } from './helpers/config';
-import { gptMain } from './gptGenerator/gptMain';
-import { writeFilesFromCollection } from './helpers/fileWriter';
-import { FileCollection } from './models/fileInterface';
+import { writeFilesFromCollection } from './helpers/file_writer';
+import { FileCollection } from './models/file_interface';
+import { gpt_main } from 'gpt_generator/gpt_main';
 
 const main = async (): Promise<void> => {
   try {
-    if (!fs.existsSync(config.baseDir)) {
-      fs.mkdirSync(config.baseDir, { recursive: true });
+    if (!fs.existsSync(config.base_dir)) {
+      fs.mkdirSync(config.base_dir, { recursive: true });
     }
 
     const prompt = await readUserInput();
 
-    const listOfFilesToWrite: FileCollection = await gptMain(prompt);
+    const listOfFilesToWrite: FileCollection = await gpt_main(prompt);
 
-    await writeFilesFromCollection(listOfFilesToWrite);
-
+    writeFilesFromCollection(listOfFilesToWrite);
   } catch (e) {
     console.error(`An error occurred: ${e} in ${__filename}`);
   }
 };
 
 main();
-

@@ -20,7 +20,7 @@ export class PromptDictionary {
       if (typeof promptPath === 'string' && fs.existsSync(promptPath)) {
         return fs.readFileSync(promptPath, 'utf-8');
       } else {
-        return "File not found";
+        return 'File not found';
       }
     }
   }
@@ -29,9 +29,9 @@ export class PromptDictionary {
     let temp: string | PromptDictionaryType = obj;
     for (const key of pathStr.split('.')) {
       if (typeof temp === 'object' && key in temp) {
-        temp = temp[key];
+        temp = temp[key] as string | PromptDictionaryType;
       } else {
-        return "Key not found";
+        return 'Key not found';
       }
     }
     return temp;
