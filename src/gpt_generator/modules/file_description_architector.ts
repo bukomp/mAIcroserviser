@@ -17,7 +17,12 @@ const gptFileDescriptionArchitector = async (project: ArchitectorResponse, promp
       Number(architectorConfig.temperature),
       architectorConfig.system_prompts,
       architectorConfig.assistant_prompts,
-      [...architectorConfig.user_prompts, prompt, structure, JSON.stringify(structureToListOfFiles(structure))]
+      architectorConfig.user_prompts,
+      [
+        { role: 'user', content: structure },
+        { role: 'user', content: JSON.stringify(structureToListOfFiles(structure)) },
+        { role: 'user', content: prompt },
+      ]
     );
 
     project.files = extractFileDescription(response);

@@ -21,12 +21,15 @@ const gptWorker = async (project: ArchitectorResponse, fileName: string, fileDet
         worker.model,
         parseFloat(worker.temperature),
         systemPrompts,
-        [...(content ? [content] : []), ...worker.assistant_prompts],
-        [project.structure, prompt, ...worker.user_prompts]
+        worker.assistant_prompts,
+        worker.user_prompts,
+        [
+          { role: 'system', content: project.structure },
+          { role: 'user', content: prompt },
+        ]
       );
     }
 
-    console.log(`${fileName} --------------------------------------- completed ---------------`);
     return content ?? '';
   } catch (e) {
     console.error(`An error occurred: ${e}${__filename}`);

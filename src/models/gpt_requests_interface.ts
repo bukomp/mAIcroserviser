@@ -9,8 +9,3 @@ export type PromptImpl = {
   role: PromptRole;
   content: string;
 };
-
-export const createPrompt = (role: PromptRole, content: string): PromptImpl => ({
-  role,
-  content,
-});

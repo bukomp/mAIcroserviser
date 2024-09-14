@@ -7,16 +7,15 @@ const gptProjectStructureArchitector = async (prompt: string): Promise<[Architec
   try {
     const architectorConfig = config.ai_config.architectors.find((architector) => architector.name === 'structure_architector');
 
-    if (!architectorConfig) {
-      throw new Error("Architector 'structure_architector' not found in config.");
-    }
+    if (!architectorConfig) throw new Error("Architector 'structure_architector' not found in config.");
 
     const response = await createChatCompletion(
       architectorConfig.model,
       parseFloat(architectorConfig.temperature),
-      [...architectorConfig.system_prompts],
-      [...architectorConfig.assistant_prompts],
-      [...architectorConfig.user_prompts, prompt]
+      architectorConfig.system_prompts,
+      architectorConfig.assistant_prompts,
+      architectorConfig.user_prompts,
+      [{ role: 'user', content: prompt }]
     );
 
     const project = projectExtractor(response);

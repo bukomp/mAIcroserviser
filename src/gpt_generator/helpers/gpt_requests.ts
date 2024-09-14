@@ -1,6 +1,7 @@
 import OpenAI from 'openai';
 import { config } from '../../helpers/config';
-import { createPrompt, Prompt } from '../../models/gpt_requests_interface';
+import { Prompt } from '../../models/gpt_requests_interface';
+import { createPrompt } from '../../helpers/utils';
 
 let attempts = 0;
 

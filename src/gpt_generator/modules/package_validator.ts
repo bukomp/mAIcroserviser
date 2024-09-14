@@ -17,14 +17,19 @@ const packageValidator = async (project: ArchitectorResponse, fileName: string, 
         ...worker.system_prompts,
       ];
 
-      content = await createChatCompletion(worker.model, parseFloat(worker.temperature), systemPrompts, worker.assistant_prompts, [
-        project.structure,
-        prompt,
-        ...worker.user_prompts,
-      ]);
+      content = await createChatCompletion(
+        worker.model,
+        parseFloat(worker.temperature),
+        systemPrompts,
+        worker.assistant_prompts,
+        worker.user_prompts,
+        [
+          { role: 'user', content: project.structure },
+          { role: 'user', content: prompt },
+        ]
+      );
     }
 
-    console.log(`${fileName} --------------------------------------- completed ---------------`);
     return content ?? '';
   } catch (e) {
     console.error(`An error occurred: ${e}${__filename}`);

@@ -30,25 +30,33 @@ const extractStructure = (content: string): string => {
 };
 
 const structure2Dict = (fileStructure: string): Record<string, string> => {
-  const lines = fileStructure.trim().split('\n');
-  const stack: string[] = [];
-  const filePathDict: Record<string, string> = {};
+  try {
+    const lines = fileStructure.trim().split('\n');
+    const stack: string[] = [];
+    const filePathDict: Record<string, string> = {};
 
-  lines.forEach((line) => {
-    if (line.includes('...')) return;
+    lines.forEach((line) => {
+      if (line.includes('...')) return;
 
-    const depth = Math.floor(line.indexOf('─') / 4);
-    const name = line.split('─').pop()?.trim()?.split(' ')[0] ?? '';
+      const depth = Math.floor(line.indexOf('─') / 4);
 
-    stack.length = depth;
-    const fullPath = stack.join('/');
+      if (depth < 0) return;
 
-    !name.endsWith('/') && (filePathDict[name] = fullPath);
+      const name = line.split('─').pop()?.trim()?.split(' ')[0] ?? '';
 
-    stack.push(name.replace('/', '').trim());
-  });
+      stack.length = depth;
+      const fullPath = stack.join('/');
 
-  return filePathDict;
+      !name.endsWith('/') && (filePathDict[name] = fullPath);
+
+      stack.push(name.replace('/', '').trim());
+    });
+
+    return filePathDict;
+  } catch (error) {
+    console.error('Error in structure2Dict:', error);
+    return {};
+  }
 };
 
 const structureToListOfFiles = (structure: string): string[] => Object.keys(structure2Dict(structure));
