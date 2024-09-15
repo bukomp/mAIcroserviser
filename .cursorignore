@@ -1,2 +1,6 @@
 microservices
 node_modules
+microservice_description.txt
+microservice_description.example.txt
+src/prompts
+prompt_archive
