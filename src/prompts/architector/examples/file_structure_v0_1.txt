@@ -12,6 +12,7 @@ microservice/
 │   ├── test_joke_generator.py {test_get_joke:None}<pytest:mark>^joke_generator.get_joke^
 │   └── test_joke_validator.py {test_validate_joke:None}<pytest:mark>^joke_validator.validate_joke^
 ├── Dockerfile
+├── docker-compose.yml
 ├── requirements.txt
 ├── main.py {run:None}<uvicorn:run>^app.main.app^
 ├── API.md
