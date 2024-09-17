@@ -4,7 +4,7 @@
       {
         "name": "structure_architector",
         "description": "AI Entity responsible for managing the structure of the system",
-        "system_prompts": ["architector.system.0_2","architector.project_structure.system.0_1"],
+        "system_prompts": ["architector.project_structure.system.0_1"],
         "assistant_prompts": ["architector.examples.file_structure.0_1"],
         "user_prompts": [],
         "ignore_general_system_prompts": false,
@@ -14,7 +14,7 @@
       {
         "name": "file_architector",
         "description": "AI Entity responsible for managing the files in the system",
-        "system_prompts": ["architector.system.0_2","architector.file_description.system.0_1"],
+        "system_prompts": ["architector.file_description.system.0_1"],
         "assistant_prompts": [],
         "user_prompts": [],
         "ignore_general_system_prompts": false,
@@ -26,38 +26,28 @@
       {
         "name": "initial_generator",
         "description": "AI Entity responsible for generating content",
-        "system_prompts": ["worker.system.0_4_7"],
+        "system_prompts": [],
         "assistant_prompts": [],
         "user_prompts": [],
         "ignore_general_system_prompts": false,
         "model": "gpt-4o-mini",
         "temperature": "0.1"
-      }
-    ],
-    "acceptance": [
+      },
       {
-        "name": "quality_assurance",
+        "name": "generation_checker",
         "description": "AI Entity responsible for checking the generated content",
         "system_prompts": [],
         "assistant_prompts": [],
-        "user_prompts": ["acceptance.quality_assurance.0_3"],
-        "ignore_general_system_prompts": false,
-        "model": "gpt-4o",
-        "temperature": "0.1"
-      }
-    ],
-    "fixer": [
-      {
-        "name": "file_fixer",
-        "description": "AI Entity responsible for fixing the generated content",
-        "system_prompts": [],
-        "assistant_prompts": [],
-        "user_prompts": [],
+        "user_prompts": ["worker.quality_assurance.0_2"],
         "ignore_general_system_prompts": false,
         "model": "gpt-4o-mini",
         "temperature": "0.1"
       }
-    ]
+    ],
+    "acceptance": [],
+
+    "general_architector_system_prompt": "architector.system.0_2",
+    "general_worker_system_prompt": "worker.system.0_4_7"
   },
   "base_dir": "microservices",
   "base_path_to_prompts": "./"

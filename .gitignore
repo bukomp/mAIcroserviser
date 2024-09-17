@@ -9,6 +9,7 @@ node_modules
 version.txt
 
 .vscode
+dist
 
 REST
 

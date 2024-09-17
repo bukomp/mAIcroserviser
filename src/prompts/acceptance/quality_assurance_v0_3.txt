@@ -1,0 +1,44 @@
+〔Task〕[📣QUALITY ASSURANCE REQUIRED❗️]
+Analyze the provided code and suggest modifications that:
+1. Maintain existing functionality
+2. Adhere to the project's architecture and file description
+3. Identify and correct issues with imports
+
+Provide your suggestions as a numbered list, focusing on specific improvements rather than rewriting the entire code.
+〔/Task〕
+
+〔Task〕[📣IMPORT VERIFICATION❗️]
+Specifically check for and report on:
+1. Non-existent imports
+2. Malformed import statements
+3. Unused imports
+4. Missing necessary imports
+
+Include these findings in your numbered list of suggestions.
+〔/Task〕
+
+〔Task〕[📣EXCLUDE EXTRANEOUS CONTENT❗️]
+Provide only the numbered list of suggestions. Do not include any introductory or concluding remarks, code snippets, or additional explanations outside the specified format.
+〔/Task〕
+
+〔Task〕[📣RESPONSE FORMAT❗️]
+Present your analysis and suggestions in the following format:
+
+1. [Suggestion category]: Brief description of the improvement
+   - Rationale for the change
+   - Expected impact on performance or maintainability
+2. [Another suggestion category]: ...
+
+Continue the list as needed, ensuring each point is clear and concise.
+〔/Task〕
+
+〔Task〕[📣PROVIDE ANALYSIS ONLY IF NEEDED❗️]
+Provide an analysis of the file's quality only if it is invalid. And will prevent application from running.
+〔/Task〕
+
+〔Task〕[📣RESPONSE FORMAT❗️]
+If the file is valid, respond with "VALID".
+If the file is invalid, respond with a brief explanation.
+
+Never leave the response empty.
+〔/Task〕
