@@ -19,6 +19,7 @@ const main = async (): Promise<void> => {
     writeFilesFromCollection(listOfFilesToWrite);
   } catch (e) {
     console.error(`An error occurred: ${e} in ${__filename}`);
+    console.error(e);
   }
 };
 
